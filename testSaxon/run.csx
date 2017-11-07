@@ -1,3 +1,4 @@
+#r "XfoDotNet40Ctl65.dll"
 #r "Newtonsoft.Json"
 
 using System.Net;
