@@ -1,0 +1,9 @@
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Saxon-HE-fixedrefs" : "9.7.0.13" 
+      }
+    }
+   }
+}
