@@ -5,6 +5,7 @@ using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
 
+using XfoDotNetCtl;
 using Saxon.Api;
 using System.IO;
 using System.Text;
