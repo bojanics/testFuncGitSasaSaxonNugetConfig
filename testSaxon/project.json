@@ -2,8 +2,7 @@
   "frameworks": {
     "net46":{
       "dependencies": {
-        "Saxon-HE-fixedrefs" : "9.7.0.13",
-        "ahformatter" : "1.0.3"
+        "Saxon-HE-fixedrefs" : "9.7.0.13"
       }
     }
    }
