@@ -32,7 +32,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     string xsl = json.xsl;
     //xsl = WebUtility.HtmlDecode(xsl);
 
-try
+try {
     XfoObj obj = new XfoObj();
 }    
 catch (XfoException e)
