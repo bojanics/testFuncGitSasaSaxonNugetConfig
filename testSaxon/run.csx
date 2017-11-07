@@ -32,38 +32,17 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     string xsl = json.xsl;
     //xsl = WebUtility.HtmlDecode(xsl);
 
+try
+    XfoObj obj = new XfoObj();
+}    
+catch (XfoException e)
+{
+log.Info("saxon funct failed to inst xfoobj");
+    throw e;
+}    
     
-    MemoryStream outFs = new MemoryStream();
+    MemoryStream outFs = doXSLT20(xml, xsl);
 
-    XfoObj obj = null;
-   try
-   {
-       obj = new XfoObj();
-       obj.ErrorStreamType = 2;
-       obj.ExitLevel = 4;
-
-       MemoryStream inFo = doXSLT20(xml, xsl);
-
-       obj.Render(inFo, outFs);
-
-       // Read stream into byte array.
-       byte[] byteArray = outFs.ToArray();
-
-       var result = req.CreateResponse();
-       result.StatusCode = HttpStatusCode.OK;
-       result.Content = new ByteArrayContent(byteArray);
-       result.Content.Headers.Add("Content-Type", "application/pdf");
-
-       return result;
-   }
-   catch (XfoException e)
-   {
-   log.Info("saxon function failed.");
-       throw e;
-   }    
-
-    
-    /*
     byte[] byteArray = outFs.ToArray();
 
     var result = req.CreateResponse();
@@ -72,7 +51,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     result.Content.Headers.Add("Content-Type", "text/xml");
 
     return result;
-    */
 }
 
 static MemoryStream doXSLT20(string xml, string xsl)
