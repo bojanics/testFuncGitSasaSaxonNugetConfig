@@ -32,6 +32,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     string xsl = json.xsl;
     //xsl = WebUtility.HtmlDecode(xsl);
 
+    XfoObj obj = null;
+    
     MemoryStream outFs = doXSLT20(xml, xsl);
 
     byte[] byteArray = outFs.ToArray();
